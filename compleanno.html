@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Per la migliore ENGENE 🦇</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #3b0a1a 0%, #590d22 50%, #2b0612 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 15px;
+            position: relative;
+        }
+
+        #sfondo-animato {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .elemento-sfondo {
+            position: absolute;
+            bottom: -60px;
+            opacity: 0.45;
+            animation: fluttua linear infinite;
+            user-select: none;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            color: #ffb3c1;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            white-space: nowrap;
+        }
+
+        @keyframes fluttua {
+            0% {
+                transform: translateY(0) rotate(-6deg);
+                opacity: 0;
+            }
+            15% {
+                opacity: 0.5;
+            }
+            85% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(6deg);
+                opacity: 0;
+            }
+        }
+
+        .card {
+            background: rgba(35, 12, 22, 0.92);
+            border: 2px solid #ff4d6d;
+            border-radius: 22px;
+            padding: 25px 20px;
+            max-width: 460px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 35px rgba(255, 77, 109, 0.35);
+            position: relative;
+            z-index: 10;
+        }
+
+        .foto-ot7 {
+            width: 100%;
+            height: 310px;
+            object-fit: contain;
+            background-color: rgba(20, 6, 12, 0.7);
+            border-radius: 14px;
+            border: 2px solid #ff758f;
+            margin-bottom: 16px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 23px;
+            margin-bottom: 10px;
+            color: #ff758f;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #ffe5ec;
+            margin-bottom: 18px;
+        }
+
+        .ot7-tag {
+            font-size: 12px;
+            color: #ffb3c1;
+            background: rgba(255, 77, 109, 0.15);
+            border: 1px solid rgba(255, 117, 143, 0.3);
+            padding: 8px 10px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            min-height: 50px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.15s ease, left 0.2s ease, top 0.2s ease;
+        }
+
+        #btn-si {
+            background: linear-gradient(45deg, #ff4d6d, #c9184a);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.5);
+        }
+
+        #btn-si:active {
+            transform: scale(0.95);
+        }
+
+        #btn-no {
+            background-color: #4a1c2d;
+            color: #ffccd5;
+            border: 1px solid #ff758f;
+            z-index: 9999;
+        }
+
+        #schermata-auguri {
+            display: none;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #c9184a, #ff4d6d);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sfondo-animato"></div>
+
+    <!-- SCHERMATA 1: LA DOMANDA -->
+    <div class="card" id="schermata-domanda">
+        <img src="ot7_1.jpg" alt="ENHYPEN OT7" class="foto-ot7">
+        
+        <h1>One, two, connect! 🦇</h1>
+        <p>Ammettilo: oggi è il compleanno della migliore <b>ENGENE</b> del mondo?</p>
+        
+        <div class="buttons">
+            <button id="btn-si" onclick="mostraAuguri()">SÌ, ovvio! ❤️</button>
+            <button id="btn-no">No 🙄</button>
+        </div>
+    </div>
+
+    <!-- SCHERMATA 2: IL BIGLIETTO D'AUGURI -->
+    <div class="card" id="schermata-auguri">
+        <div class="badge">ENHYPEN OT7 Forever 🌙</div>
+        
+        <img src="ot7_2.jpg" alt="ENHYPEN OT7 Auguri" class="foto-ot7">
+        
+        <h1>Buon Compleanno! 🎂</h1>
+        <p>
+            Sono abbastanza sicura che hai provato a dire no! 🎉<br><br>
+            Tantissimi auguri Raviiiii ❤️❤️: ti auguro un anno pieno di felicità e tanti comeback degli <b>ENHYPEN</b>!<br><br>
+            So che non ci conosciamo da molto tempo ma per me sei un'amica molto importante ❤️❤️❤️ P.S. Magari fanno una collab Txt x Enhypen 🖤
+        </p>
+
+        <div class="ot7-tag">
+            🐈 Jungwon • 🦌 Heeseung • 🦅 Jay • 🐕 Jake<br>
+            🐧 Sunghoon • 🦊 Sunoo • 🐆 Ni-ki
+        </div>
+    </div>
+
+    <script>
+        const btnNo = document.getElementById('btn-no');
+        const sfondo = document.getElementById('sfondo-animato');
+
+        const elementi = [
+            'ENHYPEN', 'ENGENE', 'OT7 ❤️',
+            'JUNGWON 🐈', 'HEESEUNG 🦌', 'JAY 🦅', 'JAKE 🐕',
+            'SUNGHOON 🐧', 'SUNOO 🦊', 'NI-KI 🐆',
+            '❤️', '💖', '🌙', '🦇', '✨'
+        ];
+        
+        function creaElementoSfondo(esplosione = false) {
+            const el = document.createElement('div');
+            el.classList.add('elemento-sfondo');
+            
+            const testo = elementi[Math.floor(Math.random() * elementi.length)];
+            el.innerText = testo;
+            el.style.left = (Math.random() * 85) + 'vw';
+            
+            const isParola = testo.length > 3;
+            el.style.fontSize = isParola ? (Math.random() * 6 + 13) + 'px' : (Math.random() * 14 + 16) + 'px';
+            el.style.animationDuration = (esplosione ? (Math.random() * 2 + 2.5) : (Math.random() * 5 + 6)) + 's';
+            
+            sfondo.appendChild(el);
+
+            setTimeout(() => {
+                el.remove();
+            }, 10000);
+        }
+
+        setInterval(() => creaElementoSfondo(false), 450);
+
+        // Frasi divertenti mentre il pulsante scappa
+        const frasiNo = [
+            'Sicura? 🤔',
+            'Non ci provare! 😜',
+            'Troppo lenta! 🦇',
+            'Sbagliato tasto! 😂',
+            'Premi SÌ dai! ❤️',
+            'Impossibile! 🙈'
+        ];
+        let tentativi = 0;
+
+        function scappa() {
+            // Sposta il pulsante fuori dalla card nel body così non viene mai tagliato
+            if (btnNo.parentElement !== document.body) {
+                document.body.appendChild(btnNo);
+            }
+
+            tentativi++;
+
+            // Dopo 7 tentativi si trasforma nel pulsante SÌ!
+            if (tentativi >= 7) {
+                btnNo.innerText = 'Ok, SÌ! ❤️';
+                btnNo.style.background = 'linear-gradient(45deg, #ff4d6d, #c9184a)';
+                btnNo.style.color = '#ffffff';
+                btnNo.removeEventListener('mouseover', scappa);
+                btnNo.onclick = mostraAuguri;
+                return;
+            }
+
+            btnNo.innerText = frasiNo[(tentativi - 1) % frasiNo.length];
+
+            const larghezzaSchermo = window.innerWidth - btnNo.offsetWidth - 20;
+            const altezzaSchermo = window.innerHeight - btnNo.offsetHeight - 20;
+
+            const nuovaX = Math.max(15, Math.floor(Math.random() * larghezzaSchermo));
+            const nuovaY = Math.max(15, Math.floor(Math.random() * altezzaSchermo));
+
+            btnNo.style.position = 'fixed';
+            btnNo.style.left = nuovaX + 'px';
+            btnNo.style.top = nuovaY + 'px';
+        }
+
+        btnNo.addEventListener('mouseover', scappa);
+        btnNo.addEventListener('touchstart', function(e) {
+            if (tentativi < 7) {
+                e.preventDefault();
+                scappa();
+            } else {
+                mostraAuguri();
+            }
+        });
+
+        function mostraAuguri() {
+            document.getElementById('schermata-domanda').style.display = 'none';
+            btnNo.style.display = 'none'; // Nasconde il pulsante quando appare il biglietto
+            document.getElementById('schermata-auguri').style.display = 'block';
+            
+            for (let i = 0; i < 35; i++) {
+                setTimeout(() => creaElementoSfondo(true), i * 60);
+            }
+        }
+    </script>
+
+</body>
+</html>
